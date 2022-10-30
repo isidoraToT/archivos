@@ -1,0 +1,52 @@
+{% load static %}
+<!doctype html>
+<html lang = "en">
+    
+<head>
+    <meta charset = "utf-8">
+    <meta name = 'viewport' content = "vidth=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name = 'description' content = "">
+    <meta name = 'author' content = "Acosta, Cerda, Eastman and Sarmiento">
+    <meta name = 'generator' content = "Jekyll v4.1.1">
+    <title>Sube tu material</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        .bd-spaceholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+    }
+
+    @media (min-width: 768px) {
+        .bd-placeholder-img-ig {
+            font-size: 3.5rem;
+        }
+    }
+
+</style>
+<body class = "text-center">
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-12">
+                <form method="post" class="form-signin" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type ="file" name ="myfile">
+                    <button type = "submit">Subir Archivo</button>
+                </form>
+
+                {% if uploaded_file_url %}
+                <p>Archivo subido en: <a href= "{{ uploaded_file_url}}">{{uploaded_file_url}}</a></p>
+                {% endif %}
+
+                    <p class="mt-5 mb-3 text-muted">&copy; 2022 Comparte Tu Material</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
